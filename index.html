@@ -9,25 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --blue:#003366;--gold:#C4A35A;--bg:#0a0f1a;--card:#141b2d;
-  --text:#e2e8f0;--text2:#94a3b8;--border:#1e293b;
-  --green:#22c55e;--yellow:#eab308;--red:#ef4444;--sky:#38bdf8;--gray:#64748b;
-  --purple:#a78bfa;
-}
+:root{--blue:#003366;--gold:#C4A35A;--bg:#0a0f1a;--card:#141b2d;--text:#e2e8f0;--text2:#94a3b8;--border:#1e293b;--green:#22c55e;--yellow:#eab308;--red:#ef4444;--sky:#38bdf8;--gray:#64748b;--purple:#a78bfa}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
-a{color:var(--gold);text-decoration:none;transition:color .2s}
-a:hover{color:#d4b76a;text-decoration:underline}
+a{color:var(--gold);text-decoration:none;transition:color .2s}a:hover{color:#d4b76a;text-decoration:underline}
 .container{max-width:1280px;margin:0 auto;padding:0 1.5rem}
 header{background:linear-gradient(135deg,var(--blue) 0%,#001a33 100%);border-bottom:3px solid var(--gold);padding:2.5rem 0 2rem}
 header h1{font-size:clamp(1.4rem,3vw,2rem);font-weight:700;color:#fff;margin-bottom:.5rem}
 header .subtitle{font-size:clamp(.85rem,1.5vw,1.05rem);color:var(--text2);margin-bottom:.25rem}
 header .meta{font-size:.8rem;color:var(--gray);font-family:'JetBrains Mono',monospace}
-.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin:2rem 0}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem;margin:2rem 0}
 .summary-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-align:center;transition:transform .2s,border-color .2s}
 .summary-card:hover{transform:translateY(-2px);border-color:var(--gold)}
 .summary-card .num{font-size:2rem;font-weight:700;color:var(--gold);display:block}
-.summary-card .label{font-size:.8rem;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem}
+.summary-card .label{font-size:.72rem;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem}
 .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 2rem;align-items:center}
 .filters span{font-size:.85rem;color:var(--text2);margin-right:.5rem}
 .filter-btn{background:var(--card);border:1px solid var(--border);color:var(--text2);padding:.4rem 1rem;border-radius:20px;cursor:pointer;font-size:.8rem;font-family:'DM Sans',sans-serif;transition:all .2s}
@@ -37,48 +31,45 @@ header .meta{font-size:.8rem;color:var(--gray);font-family:'JetBrains Mono',mono
 .epic-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;flex-wrap:wrap}
 .epic-key{font-family:'JetBrains Mono',monospace;font-size:.8rem;background:var(--blue);color:var(--gold);padding:.25rem .6rem;border-radius:6px;white-space:nowrap}
 .epic-title{font-size:1.1rem;font-weight:600;color:var(--text)}
+.epic-count{font-size:.72rem;color:var(--text2);background:var(--border);padding:.15rem .5rem;border-radius:10px}
 .table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--border)}
 table{width:100%;border-collapse:collapse;font-size:.85rem}
 thead{background:rgba(0,51,102,.4)}
 th{padding:.75rem 1rem;text-align:left;font-weight:600;color:var(--gold);white-space:nowrap;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
 td{padding:.65rem 1rem;border-top:1px solid var(--border);vertical-align:middle}
-tr{transition:background .15s}
-tbody tr:hover{background:rgba(196,163,90,.06)}
+tr{transition:background .15s}tbody tr:hover{background:rgba(196,163,90,.06)}
 .status{display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap}
 .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .dot-green{background:var(--green)}.dot-yellow{background:var(--yellow)}.dot-red{background:var(--red)}.dot-blue{background:var(--sky)}.dot-gray{background:var(--gray)}
 .badge{display:inline-block;padding:.15rem .55rem;border-radius:10px;font-size:.72rem;font-weight:600;letter-spacing:.02em;white-space:nowrap}
 .badge-historia{background:rgba(56,189,248,.15);color:var(--sky)}
+.badge-spike{background:rgba(167,139,250,.15);color:var(--purple)}
 .badge-upstream{background:rgba(234,179,8,.15);color:var(--yellow)}
 .badge-error{background:rgba(239,68,68,.15);color:var(--red)}
 footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;margin-top:2rem}
 footer p{font-size:.8rem;color:var(--gray)}
-@media(max-width:768px){
-  .container{padding:0 1rem}
-  header{padding:1.5rem 0 1.25rem}
-  th,td{padding:.5rem .6rem;font-size:.78rem}
-  .epic-header{flex-direction:column;align-items:flex-start;gap:.35rem}
-}
+@media(max-width:768px){.container{padding:0 1rem}header{padding:1.5rem 0 1.25rem}th,td{padding:.5rem .6rem;font-size:.78rem}.epic-header{flex-direction:column;align-items:flex-start;gap:.35rem}}
 </style>
 </head>
 <body>
 <header>
   <div class="container">
     <h1>Informe Iniciativa EO 2026 Movilidad — GD940-2381</h1>
-    <p class="subtitle">Todas las HU, Spikes, Upstream y Errores agrupados por Épica · Proyecto GD940</p>
+    <p class="subtitle">Todas las HU, Spikes, Upstream y Errores agrupados por Épica · Proyecto GD940 · 62 Épicas</p>
     <p class="meta">Actualizado: 27 abril 2026 · Generado por agente Scout</p>
   </div>
 </header>
 <main class="container">
   <div class="summary" id="summary"></div>
   <div class="filters">
-    <span>Filtrar por tipo:</span>
+    <span>Filtrar:</span>
     <button class="filter-btn active" data-filter="all">Todos</button>
     <button class="filter-btn" data-filter="Historia">Historia</button>
+    <button class="filter-btn" data-filter="Spike">Spike</button>
     <button class="filter-btn" data-filter="Upstream">Upstream</button>
-    <button class="filter-btn" data-filter="Error Productivo">Error Productivo</button>
+    <button class="filter-btn" data-filter="Error Productivo">Error</button>
   </div>
-  <div class="note">ℹ️ Este informe muestra los issues obtenidos de las épicas con actividad. Las épicas sin issues hijos no se muestran.</div>
+  <div class="note">Este informe consolida TODOS los issues de las 62 épicas de la iniciativa EO 2026 Movilidad. Épicas sin issues hijos no se muestran.</div>
   <div id="epics"></div>
 </main>
 <footer>
@@ -88,20 +79,315 @@ footer p{font-size:.8rem;color:var(--gray)}
   </div>
 </footer>
 <script>
-const JIRA="https://jirasegurosbolivar.atlassian.net/browse/";
-const EPICS={"GD940-1014":"Mejoras | Cuando un vehiculo cambia a ligero se quita la cobertura pero no borra el dato variable del deducible","GD940-1016":"Mejoras | Reintento llamado servicio fasecolda","GD940-1017":"Mejoras | Habilitar proceso de controles tecnicos a la cotización de la inclusion en Autos colectivos","GD940-1019":"Mejoras | Remisión archivos con pólizas a RUNT RC Pasajeros","GD940-1020":"Mejoras | Optimizacion del Api de Inspecciones (implementacion de paralelismo)","GD940-1021":"Mejoras | Implementación subproducto 321 convenio especial (Toyota)","GD940-1022":"Mejoras | Casos de auditoria que no solicitaron inspección","GD940-1023":"Mejoras | Rc pasajeros, consulta externa runt","GD940-1029":"Mejoras | APIs Asegurabilidad","GD940-1030":"Mejoras | Implementación de centralizador de logs en Simon Web","GD940-1032":"Mejoras | mostrar cual es el riesgo que no esta pasando la validación de los accesorios","GD940-1034":"Mejoras | Error pólizas sub 369 con dato tasa única asociado","GD940-1035":"Mejoras | Permitir que el core lea de forma correcta controles desde el motor de tarifación","GD940-1036":"Mejoras | Habilitar Oneroso Persona Natural - Simón ventas","GD940-1037":"Mejoras | No migrar la informacion de la modificacion del siniestro - SIPO - Orbika","GD940-1038":"Mejoras | Permitir la rehabilitación cuando se haya generado el endoso por destrucción total","GD940-1039":"Mejoras | Permitir la emisión de la póliza con altura (misma RNV)","GD940-1040":"Mejoras | Habilitación de emisión del 274, 288 y 311 por Simón Ventas","GD940-1041":"Mejoras | Incluir una nueva variable adecuación especial para vehículos pesados","GD940-1042":"Mejoras | Ajuste en el proceso de conversión del subproducto 293"};
-const ISSUES=[{"k":"GD940-396","s":"Ajuste en el proceso de conversión del subproducto 293","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1042","d":"2025-07-01","rd":null},{"k":"GD940-400","s":"Incluir una nueva variable adecuación especial para vehículos pesados","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1041","d":"2025-07-01","rd":null},{"k":"GD940-405","s":"Permitir la rehabilitación cuando se haya generado el endoso por destrucción total","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1038","d":"2025-07-01","rd":null},{"k":"GD940-409","s":"Habilitación de emisión del 274, 288 y 311 por Simón Ventas","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1040","d":"2025-07-01","rd":null},{"k":"GD940-411","s":"Permitir la emisión de la póliza con altura (misma RNV)","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1039","d":"2025-07-01","rd":null},{"k":"GD940-415","s":"Habilitar Oneroso Persona Natural - Simón ventas","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1036","d":"2025-07-01","rd":null},{"k":"GD940-420","s":"Permitir que el core lea de forma correcta controles desde el motor de tarifación","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1035","d":"2025-07-01","rd":null},{"k":"GD940-423","s":"No migrar la informacion de la modificacion del siniestro - SIPO - Orbika","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1037","d":"2025-07-01","rd":null},{"k":"GD940-440","s":"Error pólizas sub 369 con dato tasa única asociado","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1034","d":"2025-07-01","rd":null},{"k":"GD940-445","s":"Remisión archivos con pólizas a RUNT RC Pasajeros","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1019","d":"2025-07-01","rd":null},{"k":"GD940-448","s":"Mostrar cual es el riesgo que no esta pasando la validación de los accesorios","t":"Historia","st":"Backlog","a":"Sin asignar","p":"GD940-1032","d":"2025-07-01","rd":null},{"k":"GD940-452","s":"APIs Asegurabilidad, Integrar APIs al core del negocio","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1029","d":"2025-07-01","rd":null},{"k":"GD940-455","s":"Rc pasajeros, consulta externa runt","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1023","d":"2025-07-01","rd":null},{"k":"GD940-457","s":"Casos de auditoria que no solicitaron inspección","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1022","d":"2025-07-01","rd":null},{"k":"GD940-463","s":"Cuando un vehiculo cambia a ligero se quita la cobertura","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1014","d":"2025-07-01","rd":null},{"k":"GD940-465","s":"Reintento llamado servicio fasecolda","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1016","d":"2025-07-01","rd":null},{"k":"GD940-547","s":"Optimización del Api de Inspecciones (implementacion de paralelismo)","t":"Historia","st":"Cerrado","a":"JAIME FRANCISCO ISAAC ENRIQUE AREYANES RUSSO","p":"GD940-1020","d":"2025-07-01","rd":"2026-03-02"},{"k":"GD940-559","s":"Habilitar proceso de controles tecnicos a la cotización de la inclusion","t":"Historia","st":"Cancelado","a":"JAIME FRANCISCO ISAAC ENRIQUE AREYANES RUSSO","p":"GD940-1017","d":"2025-07-01","rd":"2025-10-22"},{"k":"GD940-700","s":"Implementación de logs en Simon Web en pantalla de consultas polizas","t":"Historia","st":"Cerrado","a":"Cristian David Pinzon Malaver","p":"GD940-1030","d":"2025-07-16","rd":"2025-09-17"},{"k":"GD940-828","s":"Implementación subproducto 321 convenio especial (Toyota)","t":"Historia","st":"Cerrado","a":"Ingrid Alexandra Figueroa Escobar","p":"GD940-1021","d":"2025-07-30","rd":"2026-02-10"},{"k":"GD940-1266","s":"Spike de analisis para implementar el log de fraude en Simon Ventas","t":"Upstream","st":"Hecho","a":"Cristian David Pinzon Malaver","p":"GD940-1030","d":"2025-09-02","rd":"2025-09-24"},{"k":"GD940-1367","s":"Implementación de Logs Consulta de Cotizaciones Simon Ventas","t":"Historia","st":"Cerrado","a":"JOSE ALEJANDRO ALVAREZ SANCHEZ","p":"GD940-1030","d":"2025-09-11","rd":"2026-02-20"},{"k":"GD940-1430","s":"Análisis Apagado SOAT","t":"Upstream","st":"Hecho","a":"Diana Reyes","p":"GD940-1030","d":"2025-09-22","rd":"2025-10-07"},{"k":"GD940-1442","s":"Spike Investigativo para la Implementación de Logs consulta Tronador","t":"Upstream","st":"Hecho","a":"Cristian David Pinzon Malaver","p":"GD940-1030","d":"2025-09-24","rd":"2025-12-05"},{"k":"GD940-1690","s":"Habilitar acceso de Auditoría a logs de consulta de pólizas","t":"Historia","st":"Cerrado","a":"JAIME FRANCISCO ISAAC ENRIQUE AREYANES RUSSO","p":"GD940-1030","d":"2025-10-23","rd":"2025-10-31"},{"k":"GD940-2032","s":"Implementar generación de logs para consultas de pólizas en Tronador","t":"Historia","st":"Pendiente PAP","a":"JOSE ALEJANDRO ALVAREZ SANCHEZ","p":"GD940-1030","d":"2025-11-27","rd":"2026-04-10"},{"k":"GD940-2437","s":"Habilitar proceso de controles técnicos a la cotización de la inclusión","t":"Error Productivo","st":"Pendiente PAP","a":"Christhian Camilo Perilla Gomez","p":"GD940-1017","d":"2024-10-30","rd":"2025-11-14"},{"k":"GD940-2871","s":"Spike - Implementación de Logs Tronador - Nuevos Menus","t":"Upstream","st":"Hecho","a":"JOSE ALEJANDRO ALVAREZ SANCHEZ","p":"GD940-1030","d":"2026-02-05","rd":"2026-03-10"},{"k":"GD940-3055","s":"Optimizar consulta en tabla SIN_COTIZACION_ENDOSO","t":"Historia","st":"Cerrado","a":"JAIME FRANCISCO ISAAC ENRIQUE AREYANES RUSSO","p":"GD940-1017","d":"2026-02-20","rd":"2026-02-26"}];
-function dotClass(st){if(["Cerrado","Hecho"].includes(st))return"dot-green";if(["En Progreso"].includes(st))return"dot-yellow";if(["Bloqueado"].includes(st))return"dot-red";if(["Pendiente PAP","En Pruebas"].includes(st))return"dot-blue";return"dot-gray";}
-function badgeClass(t){if(t==="Historia")return"badge-historia";if(t==="Upstream")return"badge-upstream";if(t==="Error Productivo")return"badge-error";return"badge-historia";}
-function fmtDate(d){if(!d)return"—";const p=d.split("-");return p[2]+"/"+p[1]+"/"+p[0];}
-const grouped={};ISSUES.forEach(i=>{if(!grouped[i.p])grouped[i.p]=[];grouped[i.p].push(i);});
-const totalItems=ISSUES.length;const historias=ISSUES.filter(i=>i.t==="Historia").length;const upstream=ISSUES.filter(i=>i.t==="Upstream").length;const errores=ISSUES.filter(i=>i.t==="Error Productivo").length;const epicCount=Object.keys(grouped).length;
-function card(n,l){return'<div class="summary-card"><span class="num">'+n+'</span><span class="label">'+l+'</span></div>';}
-document.getElementById("summary").innerHTML=card(totalItems,"Total Items")+card(historias,"Historias")+card(upstream,"Upstream")+card(errores,"Error Productivo")+card(epicCount,"Épicas con Issues");
-let currentFilter="all";
-function render(){const el=document.getElementById("epics");let html="";const sortedKeys=Object.keys(grouped).sort((a,b)=>parseInt(a.split("-")[1])-parseInt(b.split("-")[1]));sortedKeys.forEach(epicKey=>{let items=grouped[epicKey];if(currentFilter!=="all")items=items.filter(i=>i.t===currentFilter);if(items.length===0)return;const epicTitle=EPICS[epicKey]||epicKey;html+='<section class="epic-section"><div class="epic-header">';html+='<a href="'+JIRA+epicKey+'" target="_blank" rel="noopener" class="epic-key">'+epicKey+'</a>';html+='<span class="epic-title">'+epicTitle+'</span></div>';html+='<div class="table-wrap"><table><thead><tr><th>Key</th><th>Título</th><th>Tipo</th><th>Estado</th><th>Responsable</th><th>Fecha Inicio</th><th>Fecha Fin</th></tr></thead><tbody>';items.forEach(i=>{html+='<tr data-type="'+i.t+'">';html+='<td><a href="'+JIRA+i.k+'" target="_blank" rel="noopener" style="font-family:JetBrains Mono,monospace;font-size:.78rem">'+i.k+'</a></td>';html+='<td>'+i.s+'</td>';html+='<td><span class="badge '+badgeClass(i.t)+'">'+i.t+'</span></td>';html+='<td><span class="status"><span class="dot '+dotClass(i.st)+'"></span>'+i.st+'</span></td>';html+='<td>'+i.a+'</td>';html+='<td style="font-family:JetBrains Mono,monospace;font-size:.78rem">'+fmtDate(i.d)+'</td>';html+='<td style="font-family:JetBrains Mono,monospace;font-size:.78rem">'+fmtDate(i.rd)+'</td>';html+='</tr>';});html+='</tbody></table></div></section>';});if(!html)html='<div class="note">No hay issues para el filtro seleccionado.</div>';el.innerHTML=html;}
+const J="https://jirasegurosbolivar.atlassian.net/browse/";
+
+const EPICS={
+"GD940-1014":"Mejoras | Cuando un vehiculo cambia a ligero se quita la cobertura pero no borra el dato variable del deducible",
+"GD940-1016":"Mejoras | Reintento llamado servicio fasecolda",
+"GD940-1017":"Mejoras | Habilitar proceso de controles tecnicos a la cotización de la inclusion en Autos colectivos",
+"GD940-1019":"Mejoras | Remisión archivos con pólizas a RUNT RC Pasajeros",
+"GD940-1020":"Mejoras | Optimizacion del Api de Inspecciones (implementacion de paralelismo)",
+"GD940-1021":"Mejoras | Implementación subproducto 321 convenio especial (Toyota)",
+"GD940-1022":"Mejoras | Casos de auditoria que no solicitaron inspección",
+"GD940-1023":"Mejoras | Rc pasajeros, consulta externa runt",
+"GD940-1029":"Mejoras | APIs Asegurabilidad",
+"GD940-1030":"Mejoras | Implementación de centralizador de logs en Simon Web",
+"GD940-1032":"Mejoras | Mostrar riesgo que no pasa validación accesorios",
+"GD940-1034":"Mejoras | Error pólizas sub 369 con dato tasa única",
+"GD940-1035":"Mejoras | Core lea controles desde motor de tarifación",
+"GD940-1036":"Mejoras | Habilitar Oneroso Persona Natural",
+"GD940-1037":"Mejoras | No migrar modificacion siniestro SIPO-Orbika",
+"GD940-1038":"Mejoras | Rehabilitación con endoso destrucción total",
+"GD940-1039":"Mejoras | Emisión póliza con altura (misma RNV)",
+"GD940-1040":"Mejoras | Habilitación emisión 274, 288 y 311",
+"GD940-1041":"Mejoras | Variable adecuación especial vehículos pesados",
+"GD940-1042":"Mejoras | Ajuste conversión subproducto 293",
+"GD940-1043":"Mejoras | Definición Vehículo 0km",
+"GD940-1044":"Mejoras | Código Fasecolda emisión diferente",
+"GD940-1045":"Mejoras | Ajustar deducibles cobertura 372",
+"GD940-1046":"Mejoras | Alternativas cobertura parametrizada",
+"GD940-1047":"Mejoras | Ajuste PC en emisión",
+"GD940-1048":"Mejoras | Vinculación Excepción",
+"GD940-1049":"Mejoras | Editar Tabla Continuidad por Subproducto",
+"GD940-1050":"Mejoras | Validar vinculaciones Simón Ventas",
+"GD940-1051":"Mejoras | Exclusiones masivas con placa",
+"GD940-1052":"Mejoras | Alerta siniestralidad Simon Web",
+"GD940-1053":"Mejoras | Emisión vigencias días SOAT",
+"GD940-1054":"Mejoras | Conversión cotización a póliza Simón Web",
+"GD940-1055":"Mejoras | Modificaciones Pesados Premium 293",
+"GD940-1056":"Mejoras | Renovación subproductos colectivos",
+"GD940-1057":"Mejoras | Emisión pólizas individuales y banca",
+"GD940-1060":"Mejoras | Modificaciones pólizas colectivas",
+"GD940-1061":"Mejoras | Autogestión FV/Filenet en endoso",
+"GD940-1062":"Mejoras | Desbloqueo automático pólizas",
+"GD940-1063":"Mejoras | Cotización subproductos colectivos Renovación",
+"GD940-1064":"Mejoras | Endoso Modificación masiva valor asegurado",
+"GD940-1065":"Mejoras | Certificaciones flotas colectivas",
+"GD940-1066":"Mejoras | Ajustar Controles técnicos 400 y 100",
+"GD940-1067":"Mejoras | Ajuste liquidación exclusión riesgos",
+"GD940-1068":"Mejoras | Migración respuesta Fasecolda lago datos",
+"GD940-1069":"Mejoras | Validar plataformas cotización y emisión",
+"GD940-1070":"Mejoras | Ajuste regla riesgo vigente excepción",
+"GD940-1071":"Mejoras | Ajuste validación regla riesgo vigente",
+"GD940-1072":"Mejoras | Diccionario Datos 3 Individuales y Colectivos",
+"GD940-1073":"Mejoras | Conexión Nueva URL Pagos en Linea",
+"GD940-1075":"Mejoras | IDENTIFICACION CONSULTABLE",
+"GD940-1076":"Mejoras | Error información caso variable",
+"GD940-1080":"Mejoras | Error cotizar APIS vehículos eléctricos/híbridos",
+"GD940-1296":"Colectivas | Conductor Habitual Renovación y Modificación",
+"GD940-1929":"Reportes | Crear reporte pólizas Vigentes",
+"GD940-2061":"Errores | Obligatoriedad campos Pequeños Accesorios",
+"GD940-2436":"Errores Productivos Transversales",
+"GD940-2471":"Mejoras | Ajuste guardar pasos",
+"GD940-2565":"APIs Autos | Mejoras y Correcciones",
+"GD940-2632":"Seguridad | Eliminar datos sensibles Apis Autos",
+"GD940-2688":"Mejoras | Forma cobro mensual póliza Autos",
+"GD940-2945":"Observabilidad | SLOs Movilidad",
+"GD940-3212":"SOAT | APIs AXA Colpatria y Seguros Mundial",
+"GD940-3288":"Estrategia 3X | Migración SVN a GitHub y AWS",
+"GD940-3549":"Estrategia 3X | Módulo Ofertas Parametrizadas"
+};
+
+const I=[
+{"k":"GD940-396","s":"Ajuste en el proceso de conversión del subproducto 293","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1042","d":"2025-07-01","rd":null},
+{"k":"GD940-400","s":"Incluir variable adecuación especial para vehículos pesados","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1041","d":"2025-07-01","rd":null},
+{"k":"GD940-405","s":"Permitir rehabilitación con endoso por destrucción total","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1038","d":"2025-07-01","rd":null},
+{"k":"GD940-409","s":"Habilitación emisión 274, 288 y 311 por Simón Ventas","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1040","d":"2025-07-01","rd":null},
+{"k":"GD940-411","s":"Permitir emisión póliza con altura (misma RNV)","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1039","d":"2025-07-01","rd":null},
+{"k":"GD940-415","s":"Habilitar Oneroso Persona Natural - Simón ventas","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1036","d":"2025-07-01","rd":null},
+{"k":"GD940-420","s":"Core lea controles desde motor de tarifación para no Asegurabilidad","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1035","d":"2025-07-01","rd":null},
+{"k":"GD940-423","s":"No migrar información modificación siniestro SIPO-Orbika","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1037","d":"2025-07-01","rd":null},
+{"k":"GD940-440","s":"Error pólizas sub 369 con dato tasa única asociado","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1034","d":"2025-07-01","rd":null},
+{"k":"GD940-445","s":"Remisión archivos con pólizas a RUNT RC Pasajeros","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1019","d":"2025-07-01","rd":null},
+{"k":"GD940-448","s":"Mostrar riesgo que no pasa validación accesorios en colectivas","t":"Historia","st":"Backlog","a":"Sin asignar","p":"GD940-1032","d":"2025-07-01","rd":null},
+{"k":"GD940-452","s":"APIs Asegurabilidad, Integrar APIs al core del negocio","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1029","d":"2025-07-01","rd":null},
+{"k":"GD940-455","s":"Rc pasajeros, consulta externa runt","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1023","d":"2025-07-01","rd":null},
+{"k":"GD940-457","s":"Casos de auditoria que no solicitaron inspección","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1022","d":"2025-07-01","rd":null},
+{"k":"GD940-463","s":"Vehiculo cambia a ligero: quita cobertura pero no borra deducible","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1014","d":"2025-07-01","rd":null},
+{"k":"GD940-465","s":"Reintento llamado servicio fasecolda","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1016","d":"2025-07-01","rd":null},
+{"k":"GD940-547","s":"Optimización Api de Inspecciones (paralelismo)","t":"Historia","st":"Cerrado","a":"Jaime Areyanes Russo","p":"GD940-1020","d":"2025-07-01","rd":"2026-03-02"},
+{"k":"GD940-559","s":"Habilitar controles técnicos cotización inclusión colectivos","t":"Historia","st":"Cancelado","a":"Jaime Areyanes Russo","p":"GD940-1017","d":"2025-07-01","rd":"2025-10-22"},
+{"k":"GD940-700","s":"Implementación de logs en Simon Web consultas pólizas","t":"Historia","st":"Cerrado","a":"Cristian David Pinzon Malaver","p":"GD940-1030","d":"2025-07-16","rd":"2025-09-17"},
+{"k":"GD940-828","s":"Implementación subproducto 321 convenio especial (Toyota)","t":"Historia","st":"Cerrado","a":"Ingrid Alexandra Figueroa Escobar","p":"GD940-1021","d":"2025-07-30","rd":"2026-02-10"},
+{"k":"GD940-1266","s":"Spike análisis log de fraude en Simon Ventas","t":"Upstream","st":"Hecho","a":"Cristian David Pinzon Malaver","p":"GD940-1030","d":"2025-09-02","rd":"2025-09-24"},
+{"k":"GD940-1367","s":"Implementación Logs Consulta Cotizaciones Simon Ventas","t":"Historia","st":"Cerrado","a":"Jose Alejandro Alvarez Sanchez","p":"GD940-1030","d":"2025-09-11","rd":"2026-02-20"},
+{"k":"GD940-1430","s":"Análisis Apagado SOAT","t":"Upstream","st":"Hecho","a":"Diana Reyes","p":"GD940-1030","d":"2025-09-22","rd":"2025-10-07"},
+{"k":"GD940-1442","s":"Spike Investigativo Logs consulta Tronador","t":"Upstream","st":"Hecho","a":"Cristian David Pinzon Malaver","p":"GD940-1030","d":"2025-09-24","rd":"2025-12-05"},
+{"k":"GD940-1690","s":"Habilitar acceso Auditoría a logs consulta pólizas","t":"Historia","st":"Cerrado","a":"Jaime Areyanes Russo","p":"GD940-1030","d":"2025-10-23","rd":"2025-10-31"},
+{"k":"GD940-2032","s":"Implementar logs consultas pólizas en Tronador","t":"Historia","st":"Pendiente PAP","a":"Jose Alejandro Alvarez Sanchez","p":"GD940-1030","d":"2025-11-27","rd":"2026-04-10"},
+{"k":"GD940-2437","s":"Habilitar controles técnicos cotización inclusión colectivos","t":"Error Productivo","st":"Pendiente PAP","a":"Christhian Camilo Perilla Gomez","p":"GD940-1017","d":"2024-10-30","rd":"2025-11-14"},
+{"k":"GD940-2871","s":"Spike Implementación Logs Tronador Nuevos Menus","t":"Upstream","st":"Hecho","a":"Jose Alejandro Alvarez Sanchez","p":"GD940-1030","d":"2026-02-05","rd":"2026-03-10"},
+{"k":"GD940-3055","s":"Optimizar consulta SIN_COTIZACION_ENDOSO control técnico","t":"Historia","st":"Cerrado","a":"Jaime Areyanes Russo","p":"GD940-1017","d":"2026-02-20","rd":"2026-02-26"},
+// Lote 2: Épicas GD940-1043 a GD940-1064
+{"k":"GD940-353","s":"Endoso Modificación masiva valor asegurado colectiva","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1064","d":"2025-07-01","rd":null},
+{"k":"GD940-355","s":"Desbloqueo automático de pólizas sin importar canal","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1062","d":"2025-07-01","rd":null},
+{"k":"GD940-357","s":"Cotización subproductos colectivos para Renovación","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1063","d":"2025-07-01","rd":null},
+{"k":"GD940-360","s":"Autogestión: FV o consecutivo Filenet en endoso","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1061","d":"2025-07-01","rd":null},
+{"k":"GD940-367","s":"Modificaciones: inclusiones y forma de pago colectivas","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1060","d":"2025-07-01","rd":null},
+{"k":"GD940-369","s":"Emisión pólizas individuales y banca (261,360,274,311,374,263)","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1057","d":"2025-07-01","rd":null},
+{"k":"GD940-371","s":"Renovación pólizas subproductos colectivos","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1056","d":"2025-07-01","rd":null},
+{"k":"GD940-380","s":"Alerta siniestralidad (Pérdidas Totales) en Simon Web","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1052","d":"2025-07-01","rd":null},
+{"k":"GD940-383","s":"Exclusiones masivas: retraer info riesgo vigente por placa","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1051","d":"2025-07-01","rd":null},
+{"k":"GD940-386","s":"Validar vinculaciones Simón Ventas por subproducto","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1050","d":"2025-07-01","rd":null},
+{"k":"GD940-388","s":"Emisión pólizas vigencias días SOAT vehículos extranjeros","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1053","d":"2025-07-01","rd":null},
+{"k":"GD940-391","s":"Proceso conversión cotización a póliza Simón Web","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1054","d":"2025-07-01","rd":null},
+{"k":"GD940-394","s":"Modificaciones Pesados Premium - 293","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1055","d":"2025-07-01","rd":null},
+{"k":"GD940-402","s":"Definición Vehículo 0km: Año Actual ±1/+2 y <30 días matriculado","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1043","d":"2025-07-01","rd":null},
+{"k":"GD940-417","s":"Código Fasecolda para emisión diferente a base (Simon Ventas)","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1044","d":"2025-07-01","rd":null},
+{"k":"GD940-426","s":"Ajustar deducibles en cobertura 372","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1045","d":"2025-07-01","rd":null},
+{"k":"GD940-429","s":"Alternativas cobertura parametrizada por uso","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1046","d":"2025-07-01","rd":null},
+{"k":"GD940-433","s":"Ajuste PC en emisión: liquidar sin repasar coberturas","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1047","d":"2025-07-01","rd":null},
+{"k":"GD940-436","s":"Vinculación Excepción (ORA-20000)","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1048","d":"2025-07-01","rd":null},
+{"k":"GD940-443","s":"Editar Tabla Continuidad por Subproducto","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1049","d":"2025-07-01","rd":null},
+{"k":"GD940-3183","s":"Ajustar exclusión riesgos en renovación colectivas autos","t":"Historia","st":"En Progreso","a":"Christhian Camilo Perilla Gomez","p":"GD940-1064","d":"2026-03-06","rd":null},
+// Lote 3: Épicas GD940-1065 a GD940-2945
+{"k":"GD940-36","s":"BONIFICACION TECNICA en 0","t":"Error Productivo","st":"Cerrado","a":"Ronald Dussan","p":"GD940-2436","d":"2023-05-19","rd":"2026-03-10"},
+{"k":"GD940-38","s":"SIMON Cotizadores Autos - No guarda dato locatario","t":"Error Productivo","st":"Cerrado","a":"Ronald Dussan","p":"GD940-2436","d":"2025-02-05","rd":"2026-01-22"},
+{"k":"GD940-40","s":"INC-SOFTWARE-TRONADOR CIA 3","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2024-12-27","rd":null},
+{"k":"GD940-41","s":"INC-SOFTWARE-SIMON WEB REASEGUROS CIA 3","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2024-11-22","rd":null},
+{"k":"GD940-42","s":"Impresión de Cotizaciones RC Pasajeros","t":"Error Productivo","st":"Cerrado","a":"Camilo Andrés Quiroga Martínez","p":"GD940-2436","d":"2025-04-03","rd":"2026-02-19"},
+{"k":"GD940-46","s":"ERROR NO TARIFA PRIMA COBERTURAS POLIZA TASA UNICA","t":"Error Productivo","st":"Cerrado","a":"Diana Carolina Alarcón Beltrán","p":"GD940-2436","d":"2025-04-02","rd":"2026-02-24"},
+{"k":"GD940-47","s":"SIMON WEB Reporte: Error negociación campo tasa promedio","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-02-06","rd":null},
+{"k":"GD940-48","s":"No genera control","t":"Error Productivo","st":"Cerrado","a":"Ronald Dussan","p":"GD940-2436","d":"2024-12-17","rd":"2026-04-07"},
+{"k":"GD940-49","s":"SIMON Cotizadores - No predomina información inspección","t":"Error Productivo","st":"Bloqueado","a":"Camilo Andrés Quiroga Martínez","p":"GD940-2436","d":"2024-12-03","rd":null},
+{"k":"GD940-52","s":"VALIDACION VALORES ASEGURADOS ENDOSO CAMBIO TASA","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-05-07","rd":null},
+{"k":"GD940-76","s":"Eliminar llamada modelo tarifación endoso cero","t":"Error Productivo","st":"Cerrado","a":"henry laguna carvajal","p":"GD940-2436","d":"2024-11-20","rd":"2026-03-05"},
+{"k":"GD940-85","s":"Error endoso cambio veh oferta verde a opciones","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2024-10-29","rd":null},
+{"k":"GD940-96","s":"INC-SOFTWARE-SIMON Cotizadores Autos","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-01-29","rd":null},
+{"k":"GD940-97","s":"SIMON Cotizadores - accesorios en $0","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2024-10-22","rd":null},
+{"k":"GD940-98","s":"SIMON WEB CIA 3 error exclusión accesorios","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2024-12-17","rd":null},
+{"k":"GD940-123","s":"Conductor Habitual en Renovación Colectivas","t":"Historia","st":"En Pruebas QA","a":"Harold Martinez","p":"GD940-1296","d":"2023-07-13","rd":null},
+{"k":"GD940-132","s":"Conductor Habitual en Modificación Colectivas","t":"Historia","st":"Pendiente PAP","a":"Jose Alejandro Alvarez Sanchez","p":"GD940-1296","d":"2023-05-29","rd":"2026-03-27"},
+{"k":"GD940-140","s":"Crear reporte de pólizas Vigentes","t":"Historia","st":"Backlog","a":"Sin asignar","p":"GD940-1929","d":"2023-09-11","rd":null},
+{"k":"GD940-150","s":"Obligatoriedad campos Pequeños Accesorios vehículos Oferta","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2061","d":"2024-09-30","rd":null},
+{"k":"GD940-219","s":"Error proceso Póliza basada en cotización","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-06-03","rd":null},
+{"k":"GD940-246","s":"Creación listas Blancas usuarios Apis","t":"Historia","st":"Cancelado","a":"Jaime Areyanes Russo","p":"GD940-2565","d":"2025-06-09","rd":"2026-03-13"},
+{"k":"GD940-329","s":"Error información caso variable","t":"Error Productivo","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1076","d":"2025-07-01","rd":null},
+{"k":"GD940-330","s":"Error cotizar APIS vehículos eléctricos e híbridos","t":"Error Productivo","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1080","d":"2025-07-01","rd":null},
+{"k":"GD940-334","s":"Conexión Nueva URL Pagos en Linea","t":"Historia","st":"Cancelado","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1073","d":"2025-07-01","rd":"2026-01-09"},
+{"k":"GD940-335","s":"IDENTIFICACION CONSULTABLE","t":"Historia","st":"Cancelado","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1075","d":"2025-07-01","rd":"2026-01-09"},
+{"k":"GD940-336","s":"Ajuste validación regla riesgo vigente placa/asegurado","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1071","d":"2025-07-01","rd":null},
+{"k":"GD940-337","s":"Ajuste regla riesgo vigente, excepción","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1070","d":"2025-07-01","rd":null},
+{"k":"GD940-339","s":"Diccionario Datos 3 Individuales y Colectivos","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1072","d":"2025-07-01","rd":null},
+{"k":"GD940-344","s":"Validar plataformas en cotización y emisión","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1069","d":"2025-07-01","rd":null},
+{"k":"GD940-346","s":"Migración respuesta Fasecolda al lago de datos","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1068","d":"2025-07-01","rd":null},
+{"k":"GD940-349","s":"Ajuste liquidación exclusión riesgos vigencia >12 meses","t":"Historia","st":"Cancelado","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1067","d":"2025-07-01","rd":"2026-01-09"},
+{"k":"GD940-362","s":"Ajustar Controles técnicos 400 y 100","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1066","d":"2025-07-01","rd":null},
+{"k":"GD940-365","s":"Certificaciones: descargue flotas colectivas","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1065","d":"2025-07-01","rd":null},
+{"k":"GD940-684","s":"Spike Mapear reglas negocio autos","t":"Upstream","st":"Hecho","a":"Sin asignar","p":"GD940-2436","d":"2025-07-11","rd":"2026-02-20"},
+{"k":"GD940-685","s":"Observabilidad procesos pólizas colectivas (DataDog)","t":"Upstream","st":"Backlog","a":"Sin asignar","p":"GD940-2945","d":"2025-07-11","rd":null},
+{"k":"GD940-712","s":"Revisión Simón migración weblogic 14c","t":"Upstream","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-07-16","rd":null},
+{"k":"GD940-913","s":"Defectos transversales","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-08-01","rd":null},
+{"k":"GD940-1003","s":"INC-SOFTWARE-SIMON WEB VENTAS CIA 3","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-08-19","rd":null},
+{"k":"GD940-1120","s":"Rechazo de provisorio","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-08-20","rd":null},
+{"k":"GD940-1216","s":"Cotizadores Autos","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-08-28","rd":null},
+{"k":"GD940-1217","s":"Conversión de póliza","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-08-28","rd":null},
+{"k":"GD940-1218","s":"INC-SOFTWARE-TRONADOR BANCA + MOVILIDAD","t":"Error Productivo","st":"Backlog","a":"henry laguna carvajal","p":"GD940-2436","d":"2025-08-28","rd":null},
+{"k":"GD940-1274","s":"Defectos transversales QA","t":"Historia","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-09-03","rd":null},
+{"k":"GD940-1312","s":"Convenio Toyota - Póliza Electrónica","t":"Error Productivo","st":"Backlog","a":"Carlos Figueroa","p":"GD940-2436","d":"2025-09-08","rd":null},
+{"k":"GD940-1508","s":"Error regla riesgo vigente - Autos","t":"Error Productivo","st":"Cerrado","a":"henry laguna carvajal","p":"GD940-2436","d":"2025-09-30","rd":"2026-02-20"},
+{"k":"GD940-1517","s":"EO No valida inspección no asegurable al retomar","t":"Error Productivo","st":"En Pruebas QA","a":"Diana Reyes","p":"GD940-2436","d":"2025-10-01","rd":null},
+{"k":"GD940-1521","s":"Sistema no genera prima coberturas 370-374","t":"Error Productivo","st":"Cerrado","a":"Diana Carolina Alarcón Beltrán","p":"GD940-2436","d":"2025-10-02","rd":"2026-02-19"},
+{"k":"GD940-1647","s":"Cobro Trimestral Póliza RC Pasajeros","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-10-16","rd":null},
+{"k":"GD940-1660","s":"Error información base reemplazo póliza logs Motor","t":"Error Productivo","st":"Cerrado","a":"Ronald Dussan","p":"GD940-2436","d":"2025-10-17","rd":"2026-01-22"},
+{"k":"GD940-1688","s":"Error transmisión inspecciones automas a Bolívar","t":"Error Productivo","st":"Cerrado","a":"Alexander Vengoechea Guerrero","p":"GD940-2436","d":"2025-10-23","rd":"2025-11-18"},
+{"k":"GD940-1711","s":"Revisar parametrización comisión clave directa 38361","t":"Upstream","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-10-24","rd":null},
+{"k":"GD940-1748","s":"Ajuste placas no consultables tipo 3 Fasecolda","t":"Historia","st":"Cerrado","a":"Diana Reyes","p":"GD940-2436","d":"2025-10-29","rd":"2025-11-27"},
+{"k":"GD940-1770","s":"Inspecciones automas no se ven en Simon Web","t":"Error Productivo","st":"Pendiente PAP","a":"Cristian David Pinzon Malaver","p":"GD940-2436","d":"2025-10-30","rd":"2025-11-25"},
+{"k":"GD940-1846","s":"Cambios menores flujo cotización inclusión Colectivos","t":"Upstream","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-2436","d":"2025-11-07","rd":null},
+{"k":"GD940-1930","s":"Liquidación exclusión riesgos vigencia transversal","t":"Historia","st":"Backlog","a":"Christhian Camilo Perilla Gomez","p":"GD940-1067","d":"2025-11-18","rd":null},
+{"k":"GD940-1942","s":"FALLA PROGRAMA CB700155 - AJMDIA3","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-11-19","rd":null},
+{"k":"GD940-1943","s":"INC-SOFTWARE-SIMON Cotizadores Autos","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-11-19","rd":null},
+{"k":"GD940-1961","s":"Spike Parametrización Clausulados Convenio Asistencia","t":"Spike","st":"Backlog","a":"Carlos Figueroa","p":"GD940-2436","d":"2025-11-20","rd":null},
+{"k":"GD940-1963","s":"Conversión cotizaciones Simon web autogestión","t":"Historia","st":"Bloqueado","a":"Harold Martinez","p":"GD940-2436","d":"2025-11-20","rd":null},
+{"k":"GD940-1967","s":"Validación clientes restringidos renovación colectivas","t":"Historia","st":"En Progreso","a":"Camilo Andrés Quiroga Martínez","p":"GD940-2436","d":"2025-11-20","rd":null},
+{"k":"GD940-1975","s":"Análisis flujo cotización y emisión Simón Ventas","t":"Upstream","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-2436","d":"2025-11-21","rd":null},
+{"k":"GD940-1996","s":"Análisis Anteproyecto Oferta Híbridos y Eléctricos","t":"Spike","st":"Hecho","a":"henry laguna carvajal","p":"GD940-2436","d":"2025-11-24","rd":"2026-03-14"},
+{"k":"GD940-2003","s":"HU Defectos Transversales EO","t":"Historia","st":"Backlog","a":"Harold Martinez","p":"GD940-2436","d":"2025-11-25","rd":null},
+{"k":"GD940-2062","s":"Solución causa raíz Inspecciones no visibles Simon Web","t":"Historia","st":"Cerrado","a":"Diana Carolina Alarcón Beltrán","p":"GD940-2436","d":"2025-11-28","rd":"2026-01-28"},
+{"k":"GD940-2166","s":"Ajuste almacenamiento logs consultas SimonWeb","t":"Historia","st":"Cerrado","a":"Jose Alejandro Alvarez Sanchez","p":"GD940-2436","d":"2025-12-05","rd":"2026-01-14"},
+{"k":"GD940-2170","s":"Validación campo Número Motor emisión Individuales","t":"Upstream","st":"Por Hacer","a":"Olivet Leonardo Chona Ramirez","p":"GD940-2436","d":"2025-12-05","rd":null},
+{"k":"GD940-2171","s":"Ajuste envío parámetro ip_validacion en emisión","t":"Historia","st":"Cerrado","a":"Jaime Areyanes Russo","p":"GD940-2436","d":"2025-12-05","rd":"2025-12-16"},
+{"k":"GD940-2245","s":"INC-SOFTWARE-SIMON Cotizadores Autos","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-12-11","rd":null},
+{"k":"GD940-2248","s":"Error otorgando continuidad","t":"Error Productivo","st":"Cerrado","a":"Ronald Dussan","p":"GD940-2436","d":"2025-12-11","rd":"2026-02-24"},
+{"k":"GD940-2252","s":"INC-SOFTWARE-SIMON WEB VENTAS Valor Facturación","t":"Error Productivo","st":"Cancelado","a":"Sin asignar","p":"GD940-2436","d":"2025-12-12","rd":"2026-02-23"},
+{"k":"GD940-2270","s":"Documentar proceso Pólizas Colectivas","t":"Upstream","st":"Hecho","a":"Camilo Andrés Quiroga Martínez","p":"GD940-2436","d":"2025-12-15","rd":"2026-03-12"},
+{"k":"GD940-2273","s":"Mapeo información servicio Fasecolda en PL","t":"Historia","st":"Cerrado","a":"Ronald Dussan","p":"GD940-2436","d":"2025-12-15","rd":"2026-01-13"},
+{"k":"GD940-2283","s":"Borrado tablas cache fasecolda","t":"Historia","st":"Cerrado","a":"Jaime Areyanes Russo","p":"GD940-2436","d":"2025-12-16","rd":"2025-12-23"},
+{"k":"GD940-2313","s":"INC-SOFTWARE-SIMON WEB VENTAS CIA 3","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2025-12-17","rd":null},
+{"k":"GD940-2324","s":"Solución causa raíz Inspecciones cargue imágenes","t":"Historia","st":"Por Hacer","a":"Diana Reyes","p":"GD940-2436","d":"2025-12-17","rd":null},
+{"k":"GD940-2354","s":"INC-SOFTWARE-TRONADOR CIA 3","t":"Error Productivo","st":"Cancelado","a":"Sin asignar","p":"GD940-2436","d":"2025-12-18","rd":"2026-01-22"},
+{"k":"GD940-2368","s":"Regularización Póliza ENEL COLOMBIA Endosos 900","t":"Historia","st":"Cerrado","a":"henry laguna carvajal","p":"GD940-2436","d":"2025-12-22","rd":"2026-01-08"},
+{"k":"GD940-2446","s":"Defectos Transversales","t":"Historia","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2023-05-03","rd":null},
+{"k":"GD940-2447","s":"Autos Colectivas Fase 3: Mantener prima cotización","t":"Historia","st":"Cerrado","a":"Christhian Camilo Perilla Gomez","p":"GD940-2436","d":"2024-04-23","rd":"2026-03-03"},
+{"k":"GD940-2472","s":"Ajuste guardar pasos","t":"Historia","st":"Cancelado","a":"Sonia Maria Quitian Vanegas","p":"GD940-2471","d":"2024-09-16","rd":"2026-02-09"},
+{"k":"GD940-2473","s":"APIs V2 Preliquidación operación síncrona","t":"Historia","st":"Cerrado","a":"Olivet Leonardo Chona Ramirez","p":"GD940-2565","d":"2025-11-27","rd":"2026-02-13"},
+{"k":"GD940-2474","s":"APIs Refactor type poliza SIM_PCK_ACCESO_AUTOS_AWS","t":"Historia","st":"Cerrado","a":"Olivet Leonardo Chona Ramirez","p":"GD940-2565","d":"2025-07-01","rd":"2026-01-21"},
+{"k":"GD940-2475","s":"APIs Nuevo código sistema origen Tienda Digital Roja","t":"Historia","st":"Cerrado","a":"Jaime Areyanes Russo","p":"GD940-2565","d":"2025-11-21","rd":"2026-01-21"},
+{"k":"GD940-2476","s":"APIs Filtro optimizado Marca/Modelo vehículos 0km","t":"Historia","st":"Cerrado","a":"Olivet Leonardo Chona Ramirez","p":"GD940-2565","d":"2025-11-27","rd":"2026-01-23"},
+{"k":"GD940-2477","s":"APIs Corregir conversión cotización póliza cobertura 360","t":"Historia","st":"Cerrado","a":"Olivet Leonardo Chona Ramirez","p":"GD940-2565","d":"2025-11-21","rd":"2026-02-20"},
+{"k":"GD940-2514","s":"Spike Análisis servicio Emisión Serviexpide","t":"Upstream","st":"Backlog","a":"Alexander Vengoechea Guerrero","p":"GD940-2565","d":"2025-07-16","rd":null},
+{"k":"GD940-2515","s":"Ceremonias Iteración IT16 Apis Autos","t":"Upstream","st":"Hecho","a":"Diana Carolina Alarcón Beltrán","p":"GD940-2565","d":"2025-12-18","rd":"2026-01-08"},
+{"k":"GD940-2524","s":"Ceremonias Iteración 17 EO Movilidad","t":"Upstream","st":"Hecho","a":"Diana Carolina Alarcón Beltrán","p":"GD940-2565","d":"2026-01-07","rd":"2026-01-29"},
+{"k":"GD940-2526","s":"Sistema no borra cotizaciones por fecha vigencia","t":"Error Productivo","st":"Bloqueado","a":"Ronald Dussan","p":"GD940-2436","d":"2026-01-07","rd":null},
+{"k":"GD940-2575","s":"Borrado de cotizaciones por tiempo","t":"Historia","st":"Backlog","a":"Mario Alejandro Simus Barrios","p":"GD940-2436","d":"2026-01-09","rd":null},
+{"k":"GD940-2586","s":"INC-SOFTWARE-SIMON Cotizadores Autos","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2026-01-09","rd":null},
+{"k":"GD940-2590","s":"INC-SOFTWARE-SIMON WEB EMISION-TRONADOR CIA 3","t":"Error Productivo","st":"Cancelado","a":"Ronald Dussan","p":"GD940-2436","d":"2026-01-13","rd":"2026-03-30"},
+{"k":"GD940-2601","s":"Error endoso 733 excluye la renta","t":"Error Productivo","st":"Cerrado","a":"henry laguna carvajal","p":"GD940-2436","d":"2026-01-15","rd":"2026-02-12"},
+{"k":"GD940-2602","s":"INC-SOFTWARE-TRONADOR No cuadran primas","t":"Error Productivo","st":"Cancelado","a":"Sin asignar","p":"GD940-2436","d":"2026-01-15","rd":"2026-02-24"},
+{"k":"GD940-2604","s":"PUNT INC-SOFTWARE-GoAnyWhere programa tronador","t":"Error Productivo","st":"Cerrado","a":"Mario Alejandro Simus Barrios","p":"GD940-2436","d":"2026-01-15","rd":"2026-04-09"},
+{"k":"GD940-2605","s":"INC-SOFTWARE-SIMON WEB VENTAS CIA 3","t":"Error Productivo","st":"Backlog","a":"Sin asignar","p":"GD940-2436","d":"2026-01-15","rd":null},
+{"k":"GD940-2627","s":"Eliminar datos sensibles cliente respuesta Apis Autos","t":"Historia","st":"Cerrado","a":"Olivet Leonardo Chona Ramirez","p":"GD940-2632","d":"2025-11-07","rd":"2025-11-24"},
+{"k":"GD940-2657","s":"Borrado automático tablas no consultables y cache Fasecolda","t":"Historia","st":"Pendiente PAP","a":"Diana Reyes","p":"GD940-2436","d":"2026-01-20","rd":"2026-01-30"},
+{"k":"GD940-2684","s":"Eliminar control reenganche cotización inclusión colectivos","t":"Historia","st":"Cerrado","a":"Christhian Camilo Perilla Gomez","p":"GD940-2436","d":"2026-01-22","rd":"2026-02-27"},
+{"k":"GD940-2689","s":"Spike viabilidad forma cobro mensual póliza Autos","t":"Upstream","st":"Hecho","a":"Olivet Leonardo Chona Ramirez","p":"GD940-2688","d":"2026-01-22","rd":"2026-03-12"},
+// Lote 4: Épica GD940-3212 (SOAT)
+{"k":"GD940-3211","s":"Análisis documentación APIs SOAT AXA Colpatria y Seguros Mundial","t":"Upstream","st":"Hecho","a":"Olivet Leonardo Chona Ramirez","p":"GD940-3212","d":"2026-03-09","rd":"2026-03-31"},
+{"k":"GD940-3396","s":"Inicialización Entorno Desarrollo Wrappers SOAT AXA","t":"Historia","st":"Pendiente PAP","a":"Olivet Leonardo Chona Ramirez","p":"GD940-3212","d":"2026-03-19","rd":"2026-03-31"},
+{"k":"GD940-3400","s":"Implementación Wrapper Cotización SOAT AXA Colpatria","t":"Historia","st":"En Pruebas UAT","a":"Diana Carolina Alarcón Beltrán","p":"GD940-3212","d":"2026-03-19","rd":null},
+{"k":"GD940-3405","s":"Implementación Wrapper Emisión SOAT AXA Colpatria (V3)","t":"Historia","st":"En Pruebas UAT","a":"Diana Carolina Alarcón Beltrán","p":"GD940-3212","d":"2026-03-19","rd":null},
+{"k":"GD940-3568","s":"Implementación Wrapper Cotización SOAT Seguros Mundial","t":"Historia","st":"En Progreso","a":"Olivet Leonardo Chona Ramirez","p":"GD940-3212","d":"2026-04-01","rd":null},
+{"k":"GD940-3696","s":"Implementación Wrapper Emisión SOAT Seguros Mundial","t":"Historia","st":"En Progreso","a":"Olivet Leonardo Chona Ramirez","p":"GD940-3212","d":"2026-04-16","rd":null},
+// Lote 5: Épicas GD940-3288 y GD940-3549
+{"k":"GD940-3272","s":"Spike Front Usuario Cotización y Emisión","t":"Spike","st":"En Progreso","a":"Jose Alejandro Alvarez Sanchez","p":"GD940-3549","d":"2026-03-13","rd":null},
+{"k":"GD940-3284","s":"Spike Módulo Creación y Parametrización Ofertas","t":"Spike","st":"Backlog","a":"Diana Reyes","p":"GD940-3549","d":"2026-03-13","rd":null},
+{"k":"GD940-3285","s":"Spike Integración Módulo Ofertas con Motores, Core y Asegurabilidad","t":"Spike","st":"En Progreso","a":"henry laguna carvajal","p":"GD940-3549","d":"2026-03-13","rd":null},
+{"k":"GD940-3286","s":"Spike Obtención cuentas AWS estrategia 3X Movilidad","t":"Spike","st":"Hecho","a":"Jairo Fracica","p":"GD940-3288","d":"2026-03-13","rd":"2026-03-31"},
+{"k":"GD940-3289","s":"Migración de servicios SVN a GitHub","t":"Historia","st":"En Pruebas UAT","a":"Diana Carolina Alarcón Beltrán","p":"GD940-3288","d":"2026-03-13","rd":null},
+{"k":"GD940-3550","s":"Spike Definición modelo modificaciones, renovaciones y cancelaciones","t":"Spike","st":"En Progreso","a":"Christhian Camilo Perilla Gomez","p":"GD940-3549","d":"2026-03-31","rd":null},
+{"k":"GD940-3552","s":"Spike Investigación variables motor tarifa #2","t":"Spike","st":"Hecho","a":"Christhian Camilo Perilla Gomez","p":"GD940-3549","d":"2026-03-31","rd":"2026-04-16"},
+{"k":"GD940-3723","s":"Spike Generación PDF pólizas desde oferta","t":"Spike","st":"Backlog","a":"Jairo Fracica","p":"GD940-3549","d":"2026-04-21","rd":null},
+{"k":"GD940-3725","s":"Optimizar pool conexiones HikariCP Fasecolda y Personas","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-2945","d":"2026-04-21","rd":null},
+{"k":"GD940-3729","s":"Estabilizar conexiones Oracle DB Fasecolda y Personas","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-2945","d":"2026-04-21","rd":null},
+{"k":"GD940-3733","s":"Mejorar estrategia cache SISA/CXPER reducir errores BD","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-2945","d":"2026-04-21","rd":null},
+{"k":"GD940-3737","s":"Implementar Circuit Breaker servicio externo RUNT cotización","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-2945","d":"2026-04-21","rd":null}
+];
+
+function dc(st){
+  if(["Cerrado","Hecho","Pendiente PAP"].includes(st))return"dot-green";
+  if(["En Progreso","En Pruebas QA","En Pruebas UAT"].includes(st))return"dot-yellow";
+  if(["Bloqueado"].includes(st))return"dot-red";
+  if(["Por Hacer"].includes(st))return"dot-blue";
+  return"dot-gray";
+}
+function bc(t){
+  if(t==="Historia")return"badge-historia";
+  if(t==="Spike")return"badge-spike";
+  if(t==="Upstream")return"badge-upstream";
+  if(t==="Error Productivo")return"badge-error";
+  return"badge-historia";
+}
+function fd(d){if(!d)return"\u2014";const p=d.split("-");return p[2]+"/"+p[1]+"/"+p[0];}
+const g={};
+I.forEach(i=>{if(!g[i.p])g[i.p]=[];g[i.p].push(i);});
+const tot=I.length;
+const hist=I.filter(i=>i.t==="Historia").length;
+const spk=I.filter(i=>i.t==="Spike").length;
+const ups=I.filter(i=>i.t==="Upstream").length;
+const err=I.filter(i=>i.t==="Error Productivo").length;
+const ec=Object.keys(g).length;
+const done=I.filter(i=>["Cerrado","Hecho","Pendiente PAP","Cancelado"].includes(i.st)).length;
+const prog=I.filter(i=>["En Progreso","En Pruebas QA","En Pruebas UAT","Bloqueado","Por Hacer"].includes(i.st)).length;
+function c(n,l){return'<div class="summary-card"><span class="num">'+n+'</span><span class="label">'+l+'</span></div>';}
+document.getElementById("summary").innerHTML=c(tot,"Total Items")+c(hist,"Historias")+c(spk,"Spikes")+c(ups,"Upstream")+c(err,"Errores Prod.")+c(ec,"Épicas")+c(done,"Finalizados")+c(prog,"En Curso");
+let cf="all";
+function render(){
+  const el=document.getElementById("epics");let h="";
+  const sk=Object.keys(g).sort((a,b)=>parseInt(a.split("-")[1])-parseInt(b.split("-")[1]));
+  sk.forEach(ek=>{
+    let items=g[ek];
+    if(cf!=="all")items=items.filter(i=>i.t===cf);
+    if(items.length===0)return;
+    const et=EPICS[ek]||ek;
+    const cnt=g[ek].length;
+    h+='<section class="epic-section"><div class="epic-header">';
+    h+='<a href="'+J+ek+'" target="_blank" rel="noopener" class="epic-key">'+ek+'</a>';
+    h+='<span class="epic-title">'+et+'</span>';
+    h+='<span class="epic-count">'+cnt+' items</span></div>';
+    h+='<div class="table-wrap"><table><thead><tr><th>Key</th><th>T\u00edtulo</th><th>Tipo</th><th>Estado</th><th>Responsable</th><th>Creado</th><th>Resuelto</th></tr></thead><tbody>';
+    items.forEach(i=>{
+      h+='<tr>';
+      h+='<td><a href="'+J+i.k+'" target="_blank" rel="noopener" style="font-family:JetBrains Mono,monospace;font-size:.78rem">'+i.k+'</a></td>';
+      h+='<td>'+i.s+'</td>';
+      h+='<td><span class="badge '+bc(i.t)+'">'+i.t+'</span></td>';
+      h+='<td><span class="status"><span class="dot '+dc(i.st)+'"></span>'+i.st+'</span></td>';
+      h+='<td>'+i.a+'</td>';
+      h+='<td style="font-family:JetBrains Mono,monospace;font-size:.78rem">'+fd(i.d)+'</td>';
+      h+='<td style="font-family:JetBrains Mono,monospace;font-size:.78rem">'+fd(i.rd)+'</td>';
+      h+='</tr>';
+    });
+    h+='</tbody></table></div></section>';
+  });
+  if(!h)h='<div class="note">No hay issues para el filtro seleccionado.</div>';
+  el.innerHTML=h;
+}
 render();
-document.querySelectorAll(".filter-btn").forEach(btn=>{btn.addEventListener("click",function(){document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));this.classList.add("active");currentFilter=this.dataset.filter;render();});});
+document.querySelectorAll(".filter-btn").forEach(btn=>{
+  btn.addEventListener("click",function(){
+    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+    this.classList.add("active");cf=this.dataset.filter;render();
+  });
+});
 </script>
 </body>
 </html>
