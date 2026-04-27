@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe Iniciativa EO 2026 Movilidad — GD940-2381</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#003366;--gold:#C4A35A;--bg:#0a0f1a;--card:#141b2d;
+  --text:#e2e8f0;--text2:#94a3b8;--border:#1e293b;
+  --green:#22c55e;--yellow:#eab308;--red:#ef4444;--sky:#38bdf8;--gray:#64748b;
+  --purple:#a78bfa;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+a{color:var(--gold);text-decoration:none;transition:color .2s}
+a:hover{color:#d4b76a;text-decoration:underline}
+.container{max-width:1280px;margin:0 auto;padding:0 1.5rem}
+header{background:linear-gradient(135deg,var(--blue) 0%,#001a33 100%);border-bottom:3px solid var(--gold);padding:2.5rem 0 2rem}
+header h1{font-size:clamp(1.4rem,3vw,2rem);font-weight:700;color:#fff;margin-bottom:.5rem}
+header .subtitle{font-size:clamp(.85rem,1.5vw,1.05rem);color:var(--text2);margin-bottom:.25rem}
+header .meta{font-size:.8rem;color:var(--gray);font-family:'JetBrains Mono',monospace}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin:2rem 0}
+.summary-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-align:center;transition:transform .2s,border-color .2s}
+.summary-card:hover{transform:translateY(-2px);border-color:var(--gold)}
+.summary-card .num{font-size:2rem;font-weight:700;color:var(--gold);display:block}
+.summary-card .label{font-size:.8rem;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 2rem;align-items:center}
+.filters span{font-size:.85rem;color:var(--text2);margin-right:.5rem}
+.filter-btn{background:var(--card);border:1px solid var(--border);color:var(--text2);padding:.4rem 1rem;border-radius:20px;cursor:pointer;font-size:.8rem;font-family:'DM Sans',sans-serif;transition:all .2s}
+.filter-btn:hover,.filter-btn.active{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:600}
+.note{background:var(--card);border-left:4px solid var(--gold);padding:1rem 1.25rem;border-radius:0 8px 8px 0;margin-bottom:2rem;font-size:.85rem;color:var(--text2)}
+.epic-section{margin-bottom:2.5rem}
+.epic-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;flex-wrap:wrap}
+.epic-key{font-family:'JetBrains Mono',monospace;font-size:.8rem;background:var(--blue);color:var(--gold);padding:.25rem .6rem;border-radius:6px;white-space:nowrap}
+.epic-title{font-size:1.1rem;font-weight:600;color:var(--text)}
+.table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+thead{background:rgba(0,51,102,.4)}
+th{padding:.75rem 1rem;text-align:left;font-weight:600;color:var(--gold);white-space:nowrap;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+td{padding:.65rem 1rem;border-top:1px solid var(--border);vertical-align:middle}
+tr{transition:background .15s}
+tbody tr:hover{background:rgba(196,163,90,.06)}
+.status{display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-green{background:var(--green)}.dot-yellow{background:var(--yellow)}.dot-red{background:var(--red)}.dot-blue{background:var(--sky)}.dot-gray{background:var(--gray)}
+.badge{display:inline-block;padding:.15rem .55rem;border-radius:10px;font-size:.72rem;font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.badge-historia{background:rgba(56,189,248,.15);color:var(--sky)}
+.badge-upstream{background:rgba(234,179,8,.15);color:var(--yellow)}
+.badge-error{background:rgba(239,68,68,.15);color:var(--red)}
+footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;margin-top:2rem}
+footer p{font-size:.8rem;color:var(--gray)}
+@media(max-width:768px){
+  .container{padding:0 1rem}
+  header{padding:1.5rem 0 1.25rem}
+  th,td{padding:.5rem .6rem;font-size:.78rem}
+  .epic-header{flex-direction:column;align-items:flex-start;gap:.35rem}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>Informe Iniciativa EO 2026 Movilidad — GD940-2381</h1>
+    <p class="subtitle">Todas las HU, Spikes, Upstream y Errores agrupados por Épica · Proyecto GD940</p>
+    <p class="meta">Actualizado: 27 abril 2026 · Generado por agente Scout</p>
+  </div>
+</header>
+<main class="container">
+  <div class="summary" id="summary"></div>
+  <div class="filters">
+    <span>Filtrar por tipo:</span>
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="Historia">Historia</button>
+    <button class="filter-btn" data-filter="Upstream">Upstream</button>
+    <button class="filter-btn" data-filter="Error Productivo">Error Productivo</button>
+  </div>
+  <div class="note">ℹ️ Este informe muestra los issues obtenidos de las épicas con actividad. Las épicas sin issues hijos no se muestran.</div>
+  <div id="epics"></div>
+</main>
+<footer>
+  <div class="container">
+    <p>Proyecto Jira: <a href="https://jirasegurosbolivar.atlassian.net/browse/GD940-2381" target="_blank" rel="noopener">GD940-2381 — EO 2026 Movilidad</a></p>
+    <p style="margin-top:.5rem">Seguros Bolívar · Dirección de Tecnología</p>
+  </div>
+</footer>
+<script>
+const JIRA="https://jirasegurosbolivar.atlassian.net/browse/";
+const EPICS={"GD940-1014":"Mejoras | Cuando un vehiculo cambia a ligero se quita la cobertura pero no borra el dato variable del deducible","GD940-1016":"Mejoras | Reintento llamado servicio fasecolda","GD940-1017":"Mejoras | Habilitar proceso de controles tecnicos a la cotización de la inclusion en Autos colectivos","GD940-1019":"Mejoras | Remisión archivos con pólizas a RUNT RC Pasajeros","GD940-1020":"Mejoras | Optimizacion del Api de Inspecciones (implementacion de paralelismo)","GD940-1021":"Mejoras | Implementación subproducto 321 convenio especial (Toyota)","GD940-1022":"Mejoras | Casos de auditoria que no solicitaron inspección","GD940-1023":"Mejoras | Rc pasajeros, consulta externa runt","GD940-1029":"Mejoras | APIs Asegurabilidad","GD940-1030":"Mejoras | Implementación de centralizador de logs en Simon Web","GD940-1032":"Mejoras | mostrar cual es el riesgo que no esta pasando la validación de los accesorios","GD940-1034":"Mejoras | Error pólizas sub 369 con dato tasa única asociado","GD940-1035":"Mejoras | Permitir que el core lea de forma correcta controles desde el motor de tarifación","GD940-1036":"Mejoras | Habilitar Oneroso Persona Natural - Simón ventas","GD940-1037":"Mejoras | No migrar la informacion de la modificacion del siniestro - SIPO - Orbika","GD940-1038":"Mejoras | Permitir la rehabilitación cuando se haya generado el endoso por destrucción total","GD940-1039":"Mejoras | Permitir la emisión de la póliza con altura (misma RNV)","GD940-1040":"Mejoras | Habilitación de emisión del 274, 288 y 311 por Simón Ventas","GD940-1041":"Mejoras | Incluir una nueva variable adecuación especial para vehículos pesados","GD940-1042":"Mejoras | Ajuste en el proceso de conversión del subproducto 293"};
+const ISSUES=[{"k":"GD940-396","s":"Ajuste en el proceso de conversión del subproducto 293","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1042","d":"2025-07-01","rd":null},{"k":"GD940-400","s":"Incluir una nueva variable adecuación especial para vehículos pesados","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1041","d":"2025-07-01","rd":null},{"k":"GD940-405","s":"Permitir la rehabilitación cuando se haya generado el endoso por destrucción total","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1038","d":"2025-07-01","rd":null},{"k":"GD940-409","s":"Habilitación de emisión del 274, 288 y 311 por Simón Ventas","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1040","d":"2025-07-01","rd":null},{"k":"GD940-411","s":"Permitir la emisión de la póliza con altura (misma RNV)","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1039","d":"2025-07-01","rd":null},{"k":"GD940-415","s":"Habilitar Oneroso Persona Natural - Simón ventas","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1036","d":"2025-07-01","rd":null},{"k":"GD940-420","s":"Permitir que el core lea de forma correcta controles desde el motor de tarifación","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1035","d":"2025-07-01","rd":null},{"k":"GD940-423","s":"No migrar la informacion de la modificacion del siniestro - SIPO - Orbika","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1037","d":"2025-07-01","rd":null},{"k":"GD940-440","s":"Error pólizas sub 369 con dato tasa única asociado","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1034","d":"2025-07-01","rd":null},{"k":"GD940-445","s":"Remisión archivos con pólizas a RUNT RC Pasajeros","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1019","d":"2025-07-01","rd":null},{"k":"GD940-448","s":"Mostrar cual es el riesgo que no esta pasando la validación de los accesorios","t":"Historia","st":"Backlog","a":"Sin asignar","p":"GD940-1032","d":"2025-07-01","rd":null},{"k":"GD940-452","s":"APIs Asegurabilidad, Integrar APIs al core del negocio","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1029","d":"2025-07-01","rd":null},{"k":"GD940-455","s":"Rc pasajeros, consulta externa runt","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1023","d":"2025-07-01","rd":null},{"k":"GD940-457","s":"Casos de auditoria que no solicitaron inspección","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1022","d":"2025-07-01","rd":null},{"k":"GD940-463","s":"Cuando un vehiculo cambia a ligero se quita la cobertura","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1014","d":"2025-07-01","rd":null},{"k":"GD940-465","s":"Reintento llamado servicio fasecolda","t":"Historia","st":"Backlog","a":"Diana Carolina Alarcón Beltrán","p":"GD940-1016","d":"2025-07-01","rd":null},{"k":"GD940-547","s":"Optimización del Api de Inspecciones (implementacion de paralelismo)","t":"Historia","st":"Cerrado","a":"JAIME FRANCISCO ISAAC ENRIQUE AREYANES RUSSO","p":"GD940-1020","d":"2025-07-01","rd":"2026-03-02"},{"k":"GD940-559","s":"Habilitar proceso de controles tecnicos a la cotización de la inclusion","t":"Historia","st":"Cancelado","a":"JAIME FRANCISCO ISAAC ENRIQUE AREYANES RUSSO","p":"GD940-1017","d":"2025-07-01","rd":"2025-10-22"},{"k":"GD940-700","s":"Implementación de logs en Simon Web en pantalla de consultas polizas","t":"Historia","st":"Cerrado","a":"Cristian David Pinzon Malaver","p":"GD940-1030","d":"2025-07-16","rd":"2025-09-17"},{"k":"GD940-828","s":"Implementación subproducto 321 convenio especial (Toyota)","t":"Historia","st":"Cerrado","a":"Ingrid Alexandra Figueroa Escobar","p":"GD940-1021","d":"2025-07-30","rd":"2026-02-10"},{"k":"GD940-1266","s":"Spike de analisis para implementar el log de fraude en Simon Ventas","t":"Upstream","st":"Hecho","a":"Cristian David Pinzon Malaver","p":"GD940-1030","d":"2025-09-02","rd":"2025-09-24"},{"k":"GD940-1367","s":"Implementación de Logs Consulta de Cotizaciones Simon Ventas","t":"Historia","st":"Cerrado","a":"JOSE ALEJANDRO ALVAREZ SANCHEZ","p":"GD940-1030","d":"2025-09-11","rd":"2026-02-20"},{"k":"GD940-1430","s":"Análisis Apagado SOAT","t":"Upstream","st":"Hecho","a":"Diana Reyes","p":"GD940-1030","d":"2025-09-22","rd":"2025-10-07"},{"k":"GD940-1442","s":"Spike Investigativo para la Implementación de Logs consulta Tronador","t":"Upstream","st":"Hecho","a":"Cristian David Pinzon Malaver","p":"GD940-1030","d":"2025-09-24","rd":"2025-12-05"},{"k":"GD940-1690","s":"Habilitar acceso de Auditoría a logs de consulta de pólizas","t":"Historia","st":"Cerrado","a":"JAIME FRANCISCO ISAAC ENRIQUE AREYANES RUSSO","p":"GD940-1030","d":"2025-10-23","rd":"2025-10-31"},{"k":"GD940-2032","s":"Implementar generación de logs para consultas de pólizas en Tronador","t":"Historia","st":"Pendiente PAP","a":"JOSE ALEJANDRO ALVAREZ SANCHEZ","p":"GD940-1030","d":"2025-11-27","rd":"2026-04-10"},{"k":"GD940-2437","s":"Habilitar proceso de controles técnicos a la cotización de la inclusión","t":"Error Productivo","st":"Pendiente PAP","a":"Christhian Camilo Perilla Gomez","p":"GD940-1017","d":"2024-10-30","rd":"2025-11-14"},{"k":"GD940-2871","s":"Spike - Implementación de Logs Tronador - Nuevos Menus","t":"Upstream","st":"Hecho","a":"JOSE ALEJANDRO ALVAREZ SANCHEZ","p":"GD940-1030","d":"2026-02-05","rd":"2026-03-10"},{"k":"GD940-3055","s":"Optimizar consulta en tabla SIN_COTIZACION_ENDOSO","t":"Historia","st":"Cerrado","a":"JAIME FRANCISCO ISAAC ENRIQUE AREYANES RUSSO","p":"GD940-1017","d":"2026-02-20","rd":"2026-02-26"}];
+function dotClass(st){if(["Cerrado","Hecho"].includes(st))return"dot-green";if(["En Progreso"].includes(st))return"dot-yellow";if(["Bloqueado"].includes(st))return"dot-red";if(["Pendiente PAP","En Pruebas"].includes(st))return"dot-blue";return"dot-gray";}
+function badgeClass(t){if(t==="Historia")return"badge-historia";if(t==="Upstream")return"badge-upstream";if(t==="Error Productivo")return"badge-error";return"badge-historia";}
+function fmtDate(d){if(!d)return"—";const p=d.split("-");return p[2]+"/"+p[1]+"/"+p[0];}
+const grouped={};ISSUES.forEach(i=>{if(!grouped[i.p])grouped[i.p]=[];grouped[i.p].push(i);});
+const totalItems=ISSUES.length;const historias=ISSUES.filter(i=>i.t==="Historia").length;const upstream=ISSUES.filter(i=>i.t==="Upstream").length;const errores=ISSUES.filter(i=>i.t==="Error Productivo").length;const epicCount=Object.keys(grouped).length;
+function card(n,l){return'<div class="summary-card"><span class="num">'+n+'</span><span class="label">'+l+'</span></div>';}
+document.getElementById("summary").innerHTML=card(totalItems,"Total Items")+card(historias,"Historias")+card(upstream,"Upstream")+card(errores,"Error Productivo")+card(epicCount,"Épicas con Issues");
+let currentFilter="all";
+function render(){const el=document.getElementById("epics");let html="";const sortedKeys=Object.keys(grouped).sort((a,b)=>parseInt(a.split("-")[1])-parseInt(b.split("-")[1]));sortedKeys.forEach(epicKey=>{let items=grouped[epicKey];if(currentFilter!=="all")items=items.filter(i=>i.t===currentFilter);if(items.length===0)return;const epicTitle=EPICS[epicKey]||epicKey;html+='<section class="epic-section"><div class="epic-header">';html+='<a href="'+JIRA+epicKey+'" target="_blank" rel="noopener" class="epic-key">'+epicKey+'</a>';html+='<span class="epic-title">'+epicTitle+'</span></div>';html+='<div class="table-wrap"><table><thead><tr><th>Key</th><th>Título</th><th>Tipo</th><th>Estado</th><th>Responsable</th><th>Fecha Inicio</th><th>Fecha Fin</th></tr></thead><tbody>';items.forEach(i=>{html+='<tr data-type="'+i.t+'">';html+='<td><a href="'+JIRA+i.k+'" target="_blank" rel="noopener" style="font-family:JetBrains Mono,monospace;font-size:.78rem">'+i.k+'</a></td>';html+='<td>'+i.s+'</td>';html+='<td><span class="badge '+badgeClass(i.t)+'">'+i.t+'</span></td>';html+='<td><span class="status"><span class="dot '+dotClass(i.st)+'"></span>'+i.st+'</span></td>';html+='<td>'+i.a+'</td>';html+='<td style="font-family:JetBrains Mono,monospace;font-size:.78rem">'+fmtDate(i.d)+'</td>';html+='<td style="font-family:JetBrains Mono,monospace;font-size:.78rem">'+fmtDate(i.rd)+'</td>';html+='</tr>';});html+='</tbody></table></div></section>';});if(!html)html='<div class="note">No hay issues para el filtro seleccionado.</div>';el.innerHTML=html;}
+render();
+document.querySelectorAll(".filter-btn").forEach(btn=>{btn.addEventListener("click",function(){document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));this.classList.add("active");currentFilter=this.dataset.filter;render();});});
+</script>
+</body>
+</html>
